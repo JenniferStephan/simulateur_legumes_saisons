@@ -26,8 +26,10 @@
           <label>
             <input type="radio" name="demo" class="card-input-element d-none" value="<%= vege %>" name="simulation[activity_ids][]" id="simulation_activity_ids_<%= vege %>">
             <div for="simulation_vege_ids_<%= vege %>" class="card category-choice  bg-light d-flex flex-row justify-content-between align-items-center">
-              <%= vege %>
+              <%= vege[0..9] %>
+            <%= image_tag("ail.png") %>
             </div>
+
           </label>
           <% end %>
         </div>

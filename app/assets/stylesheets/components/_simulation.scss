@@ -14,6 +14,12 @@ label {
   width: 300px;
 }
 
+img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+}
+
 .category-choices {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -23,7 +29,7 @@ label {
 
 .card-input-element+.card {
   height: calc(36px + 2*1rem);
-  color: var(--primary);
+  color: grey;
   -webkit-box-shadow: none;
   box-shadow: none;
   border: 2px solid transparent;
@@ -36,14 +42,14 @@ label {
 }
 
 .card-input-element:checked+.card {
-  border: 2px solid var(--primary);
+  border: 2px solid blue;
   -webkit-transition: border .3s;
   -o-transition: border .3s;
   transition: border .3s;
+  color: blue;
 }
 
 .card-input-element:checked+.card::after {
-  content: 'h';
   color: #AFB8EA;
   font-size: 24px;
   -webkit-animation-name: fadeInCheckbox;
