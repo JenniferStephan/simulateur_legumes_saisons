@@ -4,6 +4,24 @@ label {
   font-size: 1rem;
 }
 
+
+.btn {
+  margin-top: 30px;
+  width: 100%;
+  color: white;
+  font-size: 18px;
+  border-radius: 30px;
+  height: 2em;
+  border: transparent;
+  background-color: #EA9085;
+}
+
+.btn:hover {
+  background-color: $light-gray;
+  color: $gray;
+}
+
+
 #simulation_ask_month {
   border-radius: 42px;
   height: 37px !important;
@@ -43,15 +61,15 @@ img {
 }
 
 .card-input-element:checked+.card {
-  border: 2px solid blue;
+  border: 2px solid #7FCD91;
   -webkit-transition: border .3s;
   -o-transition: border .3s;
   transition: border .3s;
-  color: blue;
+  color: #7FCD91;
 }
 
 .card-input-element:checked+.card::after {
-  color: #AFB8EA;
+  color: #7FCD91;
   font-size: 24px;
   -webkit-animation-name: fadeInCheckbox;
   animation-name: fadeInCheckbox;
