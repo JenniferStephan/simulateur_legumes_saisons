@@ -16,6 +16,7 @@ FL = ["Ail", "Artichaut", "Asperge", "Aubergine",
     "Nectarine","Noisette", "Noix", "Orange", "Pamplemousse",
     "Pêche", "Poire", "Pomme",
     "Prune", "Quetsche", "Raisin", "ReineClaude", "Rhubarbe"]
+
   MONTH = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
 
   def set_answer
