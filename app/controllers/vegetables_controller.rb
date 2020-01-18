@@ -2,7 +2,7 @@ class VegetablesController < ApplicationController
 before_action :set_vege, only: [:show, :edit, :update]
 
   def new
-    @vege = Vegetable.new
+    @simul = Vegetable.new
   end
 
   def create_simulation
