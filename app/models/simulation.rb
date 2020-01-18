@@ -19,15 +19,15 @@ FL = ["Ail", "Artichaut", "Asperge", "Aubergine",
   MONTH = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
 
   def set_answer
-    answer = false
-    match_vegetable_to_user_input = Vegetable.where(label: ask_vege)
+    self.answer = false
+    match_vegetable_to_user_input = Vegetable.where(label: self.ask_vege).first
     #check if ask_month is in month attribute array from fruitleg model
-    if match_vegetable_to_user_input.months.include?(ask_month)
+    if match_vegetable_to_user_input.months.include?(self.ask_month)
     #if yes, then
-    answer = true
+    self.answer = true
     #if no, then
     else
-      answer = false
+      self.answer = false
     end
   end
 end
