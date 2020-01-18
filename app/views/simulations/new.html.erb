@@ -1,0 +1,25 @@
+<div class="container mt-3">
+
+
+  <div class="searchbar form-inline search-form-control">
+      <%= simple_form_for(@simulation) do |f| %>
+      <%= f.input :ask_month, collection: Vegetable::MONTH, label: false, prompt: "Mois", class: "dropdown-menu" %>
+  </div>
+
+       <div class="form-group simul">
+          <label class="control-label check_boxes optional"></label>
+              <input type="hidden" name="simulation[year_ids][]" value="">
+              <div id="year-choice" class="simulation-choix">
+                <div class="category-choices year-choices">
+                  <% Vegetable::FL.each_with_index do |vege, index| %>
+                    <input type="radio" class="hidden" value="<%= index %>" name="simulation[vege_ids][]" id="simulation_vege_ids_<%= index %>">
+                    <label for="simulation_vege_ids_<%= index %>" class="category-choice vege">
+                      <%= vege %>
+                    </label>
+                  <% end %>
+                </div>
+              </div>
+        </div>
+
+      <% end %>
+</div>
