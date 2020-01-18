@@ -9,7 +9,7 @@ before_action :set_simulation, only: [:show, :edit, :update, :destroy]
   def create
     @simulation = Simulation.new(simulation_params)
     @simulation.ask_month = params["simulation"]["ask_month"]
-    @simulation.ask_vege = params["simulation"]["activity_ids"][1]
+    @simulation.ask_vege = params["demo"]
     @simulation.save
 
     render :show
