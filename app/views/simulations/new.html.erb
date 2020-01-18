@@ -21,5 +21,13 @@
               </div>
         </div>
 
+        <%= f.submit "Simuler", class: "button" %>
+
+      <% end %>
+
+      <% if @simulation.answer then %>
+      <h1>ok</h1>
+      <% else %>
+      <h1>no</h1>
       <% end %>
 </div>

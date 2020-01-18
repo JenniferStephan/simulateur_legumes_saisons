@@ -18,22 +18,16 @@ FL = ["Ail", "Artichaut", "Asperge", "Aubergine",
     "Prune", "Quetsche", "Raisin", "ReineClaude", "Rhubarbe"]
   MONTH = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
 
-  def set_result
-    # if activity == "Libérale" && year_existence == 1 && reglementary == false && accre == true
-    #   self.result = 0.06
-    #   self.user.update(tax_rate: self.result)
-    # elsif activity == "Libérale" && year_existence == 2 && reglementary == false && accre == true
-    #   self.result = 0.12
-    #   self.user.update(tax_rate: self.result)
-    # elsif activity == "Libérale" && year_existence == 3 && reglementary == false && accre == true
-    #   self.result = 0.17
-    #   self.user.update(tax_rate: self.result)
-    # elsif activity == "Libérale" && year_existence == 4 && reglementary == false && accre == true
-    #   self.result = 0.23
-    #   self.user.update(tax_rate: self.result)
-    # elsif activity == "Libérale" && accre == false
-    #   self.result = 0.23
-    #   self.user.update(tax_rate: self.result)
-    # end
+  def set_answer
+    answer = false
+    match_vegetable_to_user_input = Vegetable.where(label: ask_vege)
+    #check if ask_month is in month attribute array from fruitleg model
+    if match_vegetable_to_user_input.months.include?(ask_month)
+    #if yes, then
+    answer = true
+    #if no, then
+    else
+      answer = false
+    end
   end
 end

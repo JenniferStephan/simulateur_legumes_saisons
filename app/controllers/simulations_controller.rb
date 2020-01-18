@@ -7,10 +7,9 @@ before_action :set_simulation, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @simulation = Simulation.new(simulation_params)
-
+    @simulation = Simulation.new(ask_month: params["simulation"]["ask_month"],
+      ask_vege: params["simulation"]["ask_vege"])
     @simulation.save
-
   end
 
   def index
