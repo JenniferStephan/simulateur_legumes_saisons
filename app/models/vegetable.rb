@@ -15,4 +15,11 @@ class Vegetable < ApplicationRecord
     "Pêche", "Poire", "Pomme",
     "Prune", "Quetsche", "Raisin", "ReineClaude", "Rhubarbe"]
   MONTH = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+before_save :set_result
+
+  def set_result
+
+  end
+
 end
