@@ -31,10 +31,33 @@
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content m-4">
-          <h5>Est-ce que c'est conseillé de manger un.e <%= @simulation.ask_vege.downcase %> en <%= @simulation.ask_month %> ? </h5>
-          <% if @simulation.answer %>
-          <p>Oui, aucun souci ! <%= @simulation.ask_month %> fait partie des mois où le.a <%= @simulation.ask_vege.downcase %> sont de saison.</p>
+          <div class="m-3">
+                <h5>Est-ce que c'est conseillé de manger un.e <%= @simulation.ask_vege %> en <%= @simulation.ask_month %> ? </h5>
 
+                  <% if @simulation.answer %>
+
+                    <p>💚 Oui, aucun souci ! <%= @simulation.ask_month %> fait partie des mois où le.a <%= @simulation.ask_vege %> est de saison.</p>
+                    <span></span>
+                    <p>Des conseils et recettes sur <%= link_to "Marmiton", "https://www.marmiton.org/recettes/recherche.aspx?aqt=#{@simulation.ask_vege}", target: "_blank" %></p>
+
+
+                    <% else %>
+
+
+                    <% tableau_preference = Vegetable.select { |fl| fl.months.include?(@simulation.ask_month) }.shuffle.first(7).map { |fl2| [].push(fl2.label) }.flatten  %>
+                    <p>⚠️ Le <%= @simulation.ask_vege %> n'est pas de saison en <%= @simulation.ask_month %>. Choisis plutôt parmi : </p>
+                    <ul>
+                      <% tableau_preference.each do |e| %>
+                      <li><%= e %></li>
+                      <% end %>
+                    </ul>
+
+                  <% end %>
+
+                  <%= link_to "Nouvelle simulation", new_simulation_path, class: "btn-modale new"%>
+
+
+          </div>
         </div>
       </div>
     </div>
