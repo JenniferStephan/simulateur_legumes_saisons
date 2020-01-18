@@ -35,6 +35,11 @@
                 <h5>Est-ce que c'est conseillé de manger un.e <%= @simulation.ask_vege %> en <%= @simulation.ask_month %> ? </h5>
 
                   <% if @simulation.answer %>
+                    <div class="d-flex flex-row justify-content-between m-3">
+                       <img height="150px" width="400px" src="/assets/yes.gif">
+                       <img height="150px" width="400px" src="/assets/yes2.gif">
+                       <img height="150px" width="400px" src="/assets/yes3.gif">
+                     </div>
 
                     <p>💚 Oui, aucun souci ! <%= @simulation.ask_month %> fait partie des mois où le.a <%= @simulation.ask_vege %> est de saison.</p>
                     <span></span>
@@ -42,13 +47,17 @@
 
 
                     <% else %>
-
+                    <div class="d-flex flex-row justify-content-between m-3">
+                       <img height="150px" width="400px" src="/assets/no.gif">
+                       <img height="150px" width="400px" src="/assets/no2.gif">
+                       <img height="150px" width="400px" src="/assets/no3.gif">
+                     </div>
 
                     <% tableau_preference = Vegetable.select { |fl| fl.months.include?(@simulation.ask_month) }.shuffle.first(7).map { |fl2| [].push(fl2.label) }.flatten  %>
                     <p>⚠️ Le <%= @simulation.ask_vege %> n'est pas de saison en <%= @simulation.ask_month %>. Choisis plutôt parmi : </p>
                     <ul>
                       <% tableau_preference.each do |e| %>
-                      <li><%= e %></li>
+                      <li><%= link_to "#{e}", "https://www.marmiton.org/recettes/recherche.aspx?aqt=#{e}", target: "_blank" %></p></li>
                       <% end %>
                     </ul>
 
