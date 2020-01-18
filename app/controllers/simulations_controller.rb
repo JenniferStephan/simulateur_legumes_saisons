@@ -12,7 +12,7 @@ before_action :set_simulation, only: [:show, :edit, :update, :destroy]
     @simulation.ask_vege = params["demo"]
     @simulation.save
 
-    render :show
+    render :new
   end
 
   def index

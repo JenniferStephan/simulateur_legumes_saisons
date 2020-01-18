@@ -1,25 +1,13 @@
 <div class="container mt-3">
 
 
+
   <div class="searchbar form-inline search-form-control">
       <%= simple_form_for(@simulation) do |f| %>
-      <%= f.input :ask_month, collection: Simulation::MONTH, label: false, prompt: "Mois", class: "dropdown-menu" %>
+      <%= f.input :ask_month, collection: Simulation::MONTH, label: false, prompt: "📅 Quel mois sommes-nous ?", class: "dropdown-menu" %>
   </div>
 
-<!--        <div class="form-group simul">
-          <label class="control-label check_boxes optional"></label>
-              <input type="hidden" name="simulation[vege_ids][]" value="">
-              <div id="vege-choice" class="simulation-choix">
-                <div class="category-choices vege-choices">
-                  <%# Simulation::FL.each_with_index do |vege, index| %>
-                    <input type="radio" class="hidden" value="<%#= index %>" name="simulation[vege_ids][]" id="simulation_vege_ids_<%#= index %>">
-                    <label for="simulation_vege_ids_<%#= index %>" class="category-choice vege">
-                      <%#= vege %>
-                    </label>
-                  <%# end %>
-                </div>
-              </div>
-        </div> -->
+<h5 class="mb-4">🍳 Que souhaitez-vous cuisiner ou manger ?</h5>
 
         <div class="category-choices">
           <% Simulation::FL.each_with_index do |vege, index| %>
@@ -34,16 +22,28 @@
           <% end %>
         </div>
 
+        <%= f.submit "Valider 🙃", class: "btn-valider"%>
 
+      <button class="btn" type="submit" data-toggle="modal" data-target="#exampleModal">
+          Est-ce que c'est la saison ? 🌾
+      </button>
 
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content m-4">
+          <h5>Est-ce que c'est conseillé de manger un.e <%= @simulation.ask_vege.downcase %> en <%= @simulation.ask_month %> ? </h5>
+          <% if @simulation.answer %>
+          <p>Oui, aucun souci ! <%= @simulation.ask_month %> fait partie des mois où le.a <%= @simulation.ask_vege.downcase %> sont de saison.</p>
 
-        <%= f.submit "Simuler", class: "btn" %>
+        </div>
+      </div>
+    </div>
+
 
       <% end %>
+<!-- <h4><%= @simulation.id %></h4>
+  <h4><%= @simulation.ask_month %></h4>
+  <h4><%= @simulation.ask_vege %></h4>
+  <h4><%= @simulation.answer %></h4> -->
 
-      <% if @simulation.answer then %>
-      <h1>ok</h1>
-      <% else %>
-      <h1>no</h1>
-      <% end %>
 </div>
