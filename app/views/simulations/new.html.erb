@@ -1,10 +1,14 @@
 <div class="container mt-3">
 
 
-
-  <div class="searchbar form-inline search-form-control">
-      <%= simple_form_for(@simulation) do |f| %>
-      <%= f.input :ask_month, collection: Simulation::MONTH, label: false, prompt: "📅 Quel mois sommes-nous ?", class: "dropdown-menu" %>
+  <div class="d-flex flex-row">
+    <div class="searchbar form-inline search-form-control">
+        <%= simple_form_for(@simulation) do |f| %>
+        <%= f.input :ask_month, collection: Simulation::MONTH, label: false, prompt: "📅 Quel mois sommes-nous ?", class: "dropdown-menu" %>
+    </div>
+    <div class="guide ml-5 mt-4">
+    <%= link_to "Ouvrir calendrier fruits et légumes par mois", "https://www.ademe.fr/sites/default/files/assets/documents/calendrier-fruits-legumes-de-saison.pdf", target: "_blank" %>
+    </div>
   </div>
 
 <h5 class="mb-4">🍳 Que souhaitez-vous cuisiner ou manger ?</h5>
@@ -54,7 +58,7 @@
                      </div>
 
                     <% tableau_preference = Vegetable.select { |fl| fl.months.include?(@simulation.ask_month) }.shuffle.first(7).map { |fl2| [].push(fl2.label) }.flatten  %>
-                    <p>⚠️ Le <%= @simulation.ask_vege %> n'est pas de saison en <%= @simulation.ask_month %>. Choisis plutôt parmi : </p>
+                    <p>⚠️ Le <%= @simulation.ask_vege %> n'est pas de saison en <%= @simulation.ask_month %>. Choisissez plutôt parmi : </p>
                     <ul>
                       <% tableau_preference.each do |e| %>
                       <li><%= link_to "#{e}", "https://www.marmiton.org/recettes/recherche.aspx?aqt=#{e}", target: "_blank" %></p></li>
