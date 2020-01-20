@@ -70,7 +70,7 @@ label {
   border-radius: 30px;
   height: 2em;
   border: transparent;
-  background-color: #EA9085;
+  background-color: #C93E7B;
 }
 
 .btn:hover {
@@ -119,15 +119,15 @@ img {
 }
 
 .card-input-element:checked+.card {
-  border: 2px solid #7FCD91;
+  border: 2px solid #4B5948;
   -webkit-transition: border .3s;
   -o-transition: border .3s;
   transition: border .3s;
-  color: #7FCD91;
+  color: #4B5948;
 }
 
 .card-input-element:checked+.card::after {
-  color: #7FCD91;
+  color: #4B5948;
   font-size: 24px;
   -webkit-animation-name: fadeInCheckbox;
   animation-name: fadeInCheckbox;
